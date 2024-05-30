@@ -10,6 +10,7 @@ class AggData {
         totalPaymentsCount,
         totalTradeCount,
     ) {
+        const am = new AggMath();
         this.totalSupply = totalSupply;
         this.feeLock = feeLock;
         this.reservedAmount = reservedAmount;
@@ -18,6 +19,12 @@ class AggData {
         this.overallPaymentCount = overallPaymentCount;
         this.totalPaymentsCount = totalPaymentsCount;
         this.totalTradeCount = totalTradeCount;
+
+        this.apy = am.apy(totalSupply)
+        this.poolUtalzation = am.poolUtilization()
+        this.liquidityLevels = am.liquidityLevels()
+        this.tradingActivity = am.tradingActivity()
+        this.
     }
 }
 
@@ -80,7 +87,7 @@ class AggMath {
     return asset1 + asset2;
   }
 
-  static apy(n) {
+  apy(n) {
        // What is n?
       return ((1+(0.3/n))**n)-1;
   }
@@ -128,9 +135,6 @@ class AggMath {
   return score
   }
 
-  static feeLock(asset1,asset2) {
-    return asset1 + asset2;
-  }
   static reservedAmount(asset1,asset2) {
     return asset1 + asset2;
   }

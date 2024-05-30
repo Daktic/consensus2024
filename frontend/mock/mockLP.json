@@ -1,0 +1,23 @@
+{
+  "address": "CAAXGP7LTPV4A57LSKDWTSPPJUGFGNU34KQ3FYIPYUUP2SLFGVMTYKYU",
+  "tokenA": {
+    "address": "CDLZFC3SYJYDZT7K67VZ75HPJVIEUVNIXF47ZG2FB2RMQQVU2HHGCYSC",
+    "creator": "GARUDQULRJ57RO2RTDGPKTBMPYX5UDJXLOXPW5FBNR2WL6GYGH5Q36V7",
+    "symbol": "XLM",
+    "locked": "3098.7741593",
+    "reservedAmount": "500"
+  },
+    "tokenB": {
+    "address": "CCKW6SMINDG6TUWJROIZ535EW2ZUJQEDGSKNIK3FBK26PAMBZDVK2BZA",
+    "creator": "GCPJFNZAARY3Z2AM7RVXDZDLPOEBT4QHTQXFOFKMZHLV7PPDKE2M67Q6",
+      "symbol": "CCKW6SMINDG6TUWJROIZ535EW2ZUJQEDGSKNIK3FBK26PAMBZDVK2BZA",
+      "locked": "1037114",
+      "reservedAmount": "500"
+    },
+  "transactionCount": "15",
+  "feeLock": "0.03",
+
+  "overallPaymentCount": "5000",
+  "totalPaymentsCount": "4000",
+  "totalTradeCount": "6000"
+}
