@@ -90,7 +90,7 @@ class AggMath {
       this.totalTradeCount(tokenA.totalTradeCount, tokenB.totalTradeCount),
     );
   }
-  static totalSupply(asset1,asset2) {
+  totalSupply(asset1,asset2) {
     return asset1 + asset2;
   }
 
