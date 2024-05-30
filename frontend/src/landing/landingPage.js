@@ -1,45 +1,56 @@
+import {useState} from "react";
 
 
 function LandingPage() {
+    const [totalSupply, setTotalSupply] = useState(0);
+    const [feeLock, setFeeLock] = useState(0);
+    const [reservedAmount, setReservedAmount] = useState(0);
+    const [circulatingSupply, setCirculatingSupply] = useState(0);
+    const [trustlessness, setTrustlessnes] = useState(0);
+    const [overallPaymentCount, setOverallPaymentCount] = useState(0);
+    const [totalPaymentsCount, setTotalPaymentsCount] = useState(0);
+    const [totalTradeCount, setTotalTradeCount] = useState(0);
+    const [overallTradedVolume, setOverallTradedVolume] = useState(0);
+
   return (
     <div>
       <h1>Pool Metric Aggregator</h1>
         <div>
             <div>
                 <h3>Total Supply</h3>
-                <p>0</p>
+                <p>{totalSupply}</p>
             </div>
             <div>
                 <h3>Locked in fee Pool</h3>
-                <p>1</p>
+                <p>{feeLock}</p>
             </div>
             <div>
                 <h3>Reserved Amount</h3>
-                <p>2</p>
+                <p>{reservedAmount}</p>
             </div>
             <div>
                 <h3>Circulating Supply</h3>
-                <p>3</p>
+                <p>{circulatingSupply}</p>
             </div>
             <div>
                 <h3>Trustlessness</h3>
-                <p>4</p>
+                <p>{trustlessness}</p>
             </div>
             <div>
                 <h3>Total Payments count</h3>
-                <p>5</p>
+                <p>{totalPaymentsCount}</p>
             </div>
             <div>
                 <h3>Overall Payment Count</h3>
-                <p>6</p>
+                <p>{overallPaymentCount}</p>
             </div>
             <div>
                 <h3>Total Trade Count</h3>
-                <p>7</p>
+                <p>{totalTradeCount}</p>
             </div>
             <div>
                 <h3>Overall Traded Volume</h3>
-                <p>8</p>
+                <p>{overallTradedVolume}</p>
             </div>
 
 
