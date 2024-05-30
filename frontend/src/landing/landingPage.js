@@ -1,4 +1,5 @@
 import {useEffect, useState} from "react";
+import {AggMath} from "../scraper/math";
 
 
 function LandingPage({data}) {
@@ -11,6 +12,9 @@ function LandingPage({data}) {
     const [totalPaymentsCount, setTotalPaymentsCount] = useState(0);
     const [totalTradeCount, setTotalTradeCount] = useState(0);
     const [overallTradedVolume, setOverallTradedVolume] = useState(0);
+    const [riskScore, setRiskScore] = useState();
+
+    const am = new AggMath;
 
     useEffect(() => {
         setTotalSupply(data.totalSupply);
@@ -22,12 +26,17 @@ function LandingPage({data}) {
         setTotalPaymentsCount(data.totalPaymentsCount);
         setTotalTradeCount(data.totalTradeCount);
         setOverallTradedVolume(data.overallTradedVolume);
+        setRiskScore(am.riskScore(data))
     }, [data]);
 
   return (
     <div>
       <h1>Pool Metric Aggregator</h1>
         <div>
+            <div>
+                <h2>Risk Score</h2>
+                <p>{riskScore}</p>
+            </div>
             <div>
                 <h3>Total Supply</h3>
                 <p>{totalSupply}</p>

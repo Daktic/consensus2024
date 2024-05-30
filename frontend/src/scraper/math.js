@@ -24,13 +24,25 @@ class AggData {
         this.poolUtalzation = am.poolUtilization()
         this.liquidityLevels = am.liquidityLevels()
         this.tradingActivity = am.tradingActivity()
-        this.
+        this.paymentActivity = am.tradingActivity()
+        this.liquidityConcentration = am.liquidityConcentration()
+        this.liquidityDepth = am.liquidityDepth()
     }
 }
 
 class DataMeta {
     constructor(
     ) {
+        this.apy = {};
+        this.poolUtalization = {};
+        this.liquidityLevels = {};
+        this.paymentActivity = {};
+        this.tradingActivitiy = {};
+        this.liquiditytConcentration = {};
+        this.liqudityDepth = {};
+
+
+
         this.apy.weight = 0.15;
         this.apy.min = 0;
         this.apy.max = 0.5;
@@ -43,18 +55,13 @@ class DataMeta {
         this.liquidityLevels.min = 100;
         this.liquidityLevels.max = 10000;
 
-        this.tradingActivity.weight = 0.1;
-        this.tradingActivity.min = 500;
-        this.tradingActivity.max = 1000;
-
         this.paymentActivity.weight = 0.1;
         this.paymentActivity.min = 0;
         this.paymentActivity.max = 1000;
 
-        this.TradingActivitiy.weight = 0.1;
-        this.TradingActivitiy.min = 0;
-        this.TradingActivitiy.max = 1000;
-
+        this.tradingActivitiy.weight = 0.1;
+        this.tradingActivitiy.min = 0;
+        this.tradingActivitiy.max = 1000;
 
         this.liquiditytConcentration.weight = 0.1;
         this.liquiditytConcentration.min = 0;
@@ -113,24 +120,25 @@ class AggMath {
   liquidityDepth(reservedAmount, lockedFeePool) {
     return reservedAmount+lockedFeePool;
   }
-  static normalize(value,min,max) {
+  normalize(value,min,max) {
     return (value-min)/(max-min);
   }
-  static weigh(value, min, max, weight) {
+  weigh(value, min, max, weight) {
     let nValue = this.normalize(value, min, max);
     return nValue * weight;
   }
-  static riskScore(AggData) {
+  riskScore(AggData) {
     let weights = new DataMeta();
     let score =
-        this.weigh(AggData.totalSupply, weights.totalSupply.min, weights.totalSupply.max, weights.totalSupply.weight) +
-        this.weigh(AggData.feeLock, weights.feeLock.min, weights.feeLock.max, weights.feeLock.weight) +
-        this.weigh(AggData.reservedAmount, weights.reservedAmount.min, weights.reservedAmount.max, weights.reservedAmount.weight) +
-        this.weigh(AggData.circulatingSupply, weights.circulatingSupply.min, weights.circulatingSupply.max, weights.circulatingSupply.weight) +
-        this.weigh(AggData.trustlessness, weights.trustlessness.min, weights.trustlessness.max, weights.trustlessness.weight) +
-        this.weigh(AggData.overallPaymentCount, weights.overallPaymentCount.min, weights.overallPaymentCount.max, weights.overallPaymentCount.weight) +
-        this.weigh(AggData.totalPaymentsCount, weights.totalPaymentsCount.min, weights.totalPaymentsCount.max, weights.totalPaymentsCount.weight) +
-        this.weigh(AggData.totalTradeCount, weights.totalTradeCount.min, weights.totalTradeCount.max, weights.totalTradeCount.weight);
+        this.weigh(AggData.apy, weights.apy.min, weights.apy.max, weights.apy.weight) +
+        this.weigh(AggData.poolUtalzation, weights.poolUtalization.min, weights.poolUtalization.max, weights.poolUtalization.weight) +
+        this.weigh(AggData.liquidityLevels, weights.liquidityLevels.min, weights.liquidityLevels.max, weights.liquidityLevels.weight) +
+        this.weigh(AggData.paymentActivity, weights.paymentActivity.min, weights.paymentActivity.max, weights.paymentActivity.weight) +
+        this.weigh(AggData.tradingActivity, weights.tradingActivitiy.min, weights.tradingActivitiy.max, weights.tradingActivitiy.weight) +
+        this.weigh(AggData.liquiditytConcentration, weights.liquiditytConcentration.min, weights.liquiditytConcentration.max, weights.liquiditytConcentration.weight) +
+        this.weigh(AggData.liqudityDepth, weights.liqudityDepth.min, weights.liqudityDepth.max, weights.liqudityDepth.weight)
+
+
 
   return score
   }

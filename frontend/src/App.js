@@ -4,7 +4,7 @@ import LandingPage from "./landing/landingPage";
 import Scraper from "./scraper/Scraper";
 import {useState} from "react";
 import {AggData, AggMath} from "./scraper/math";
-import contractData from  "../mock/mockLP.json";
+import contractData from  "./mock/mockLP.json";
 
 
 
