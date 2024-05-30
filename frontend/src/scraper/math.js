@@ -40,6 +40,33 @@ class AggMath {
     return asset1 + asset2;
   }
 
+  static apy(n) {
+       // What is n?
+      return ((1+(0.3/n))**n)-1;
+  }
+
+  poolUtilization(tradingVolume, totalSupply) {
+    return tradingVolume/totalSupply;
+  }
+
+  liquidityLevels(reservedAmountTokenA, reservedAmountTokenB) {
+    return reservedAmountTokenA + reservedAmountTokenB;
+  }
+  paymentActivity(totalPaymentCount, OverallPaymentVolume) {
+    return totalPaymentCount /OverallPaymentVolume;
+
+  }
+  tradingActivity(totalTradeCount, totalTradeVolume) {
+    return totalTradeCount/ totalTradeVolume;
+  }
+  liquidityConcentration(totalSupply, CirculatingSupplu) {
+    return totalSupply/CirculatingSupplu;
+  }
+
+  liquidityDepth(reservedAmount, lockedFeePool) {
+    return reservedAmount+lockedFeePool;
+  }
+
   static feeLock(asset1,asset2) {
     return asset1 + asset2;
   }
@@ -61,6 +88,9 @@ class AggMath {
     static totalTradeCount(asset1,asset2) {
       return asset1 + asset2;
     }
+    static totalTradeVolumes(asset1,asset2) {
+      return asset1 + asset2;
+  }
 }
 
 export {AggMath, AggData};
