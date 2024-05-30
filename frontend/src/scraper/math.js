@@ -21,6 +21,46 @@ class AggData {
     }
 }
 
+class DataMeta {
+    constructor(
+    ) {
+        this.apy.weight = 0.15;
+        this.apy.min = 0;
+        this.apy.max = 0.5;
+
+        this.poolUtalization.weight = 0.15;
+        this.poolUtalization.min = 0;
+        this.poolUtalization.max = 1;
+
+        this.liquidityLevels.weight = 0.2;
+        this.liquidityLevels.min = 100;
+        this.liquidityLevels.max = 10000;
+
+        this.tradingActivity.weight = 0.1;
+        this.tradingActivity.min = 500;
+        this.tradingActivity.max = 1000;
+
+        this.paymentActivity.weight = 0.1;
+        this.paymentActivity.min = 0;
+        this.paymentActivity.max = 1000;
+
+        this.TradingActivitiy.weight = 0.1;
+        this.TradingActivitiy.min = 0;
+        this.TradingActivitiy.max = 1000;
+
+
+        this.liquiditytConcentration.weight = 0.1;
+        this.liquiditytConcentration.min = 0;
+        this.liquiditytConcentration.max = 1;
+
+        this.liqudityDepth.weight = 0.1;
+        this.liqudityDepth.min = 1000;
+        this.liqudityDepth.max = 10000;
+
+    }
+
+}
+
 class AggMath {
 
   getMath(tokenA, tokenB) {
@@ -65,6 +105,27 @@ class AggMath {
 
   liquidityDepth(reservedAmount, lockedFeePool) {
     return reservedAmount+lockedFeePool;
+  }
+  static normalize(value,min,max) {
+    return (value-min)/(max-min);
+  }
+  static weigh(value, min, max, weight) {
+    let nValue = this.normalize(value, min, max);
+    return nValue * weight;
+  }
+  static riskScore(AggData) {
+    let weights = new DataMeta();
+    let score =
+        this.weigh(AggData.totalSupply, weights.totalSupply.min, weights.totalSupply.max, weights.totalSupply.weight) +
+        this.weigh(AggData.feeLock, weights.feeLock.min, weights.feeLock.max, weights.feeLock.weight) +
+        this.weigh(AggData.reservedAmount, weights.reservedAmount.min, weights.reservedAmount.max, weights.reservedAmount.weight) +
+        this.weigh(AggData.circulatingSupply, weights.circulatingSupply.min, weights.circulatingSupply.max, weights.circulatingSupply.weight) +
+        this.weigh(AggData.trustlessness, weights.trustlessness.min, weights.trustlessness.max, weights.trustlessness.weight) +
+        this.weigh(AggData.overallPaymentCount, weights.overallPaymentCount.min, weights.overallPaymentCount.max, weights.overallPaymentCount.weight) +
+        this.weigh(AggData.totalPaymentsCount, weights.totalPaymentsCount.min, weights.totalPaymentsCount.max, weights.totalPaymentsCount.weight) +
+        this.weigh(AggData.totalTradeCount, weights.totalTradeCount.min, weights.totalTradeCount.max, weights.totalTradeCount.weight);
+
+  return score
   }
 
   static feeLock(asset1,asset2) {
