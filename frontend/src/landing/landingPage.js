@@ -1,7 +1,7 @@
-import {useState} from "react";
+import {useEffect, useState} from "react";
 
 
-function LandingPage() {
+function LandingPage({data}) {
     const [totalSupply, setTotalSupply] = useState(0);
     const [feeLock, setFeeLock] = useState(0);
     const [reservedAmount, setReservedAmount] = useState(0);
@@ -11,6 +11,18 @@ function LandingPage() {
     const [totalPaymentsCount, setTotalPaymentsCount] = useState(0);
     const [totalTradeCount, setTotalTradeCount] = useState(0);
     const [overallTradedVolume, setOverallTradedVolume] = useState(0);
+
+    useEffect(() => {
+        setTotalSupply(data.totalSupply);
+        setFeeLock(data.feeLock);
+        setReservedAmount(data.reservedAmount);
+        setCirculatingSupply(data.circulatingSupply);
+        setTrustlessnes(data.trustlessness);
+        setOverallPaymentCount(data.overallPaymentCount);
+        setTotalPaymentsCount(data.totalPaymentsCount);
+        setTotalTradeCount(data.totalTradeCount);
+        setOverallTradedVolume(data.overallTradedVolume);
+    }, [data]);
 
   return (
     <div>
@@ -52,8 +64,6 @@ function LandingPage() {
                 <h3>Overall Traded Volume</h3>
                 <p>{overallTradedVolume}</p>
             </div>
-
-
         </div>
     </div>
   );
