@@ -19,11 +19,13 @@ function App() {
             let asset1 = await scrappy.getAssetData("GBBD47IF6LWK7P7MDEVSCWR7DPUWV3NY3DTQEVFL4NAT4AQH3ZLLFLA5", "USDC")
             let asset2 = await scrappy.getAssetData("GBBD47IF6LWK7P7MDEVSCWR7DPUWV3NY3DTQEVFL4NAT4AQH3ZLLFLA5", "USDC")
         let mathModule = new AggMath()
+        console.log(asset1);
         let aggData = new AggData(
-            mathModule.totalSupply(asset1.totalSupply, asset2.totalSupply),
+            mathModule.totalSupply(asset1._embedded.records[0].amount, asset2._embedded.records[0].amount),
             contractData.feeLock,
             contractData.tokenA.reservedAmount + contractData.tokenB.reservedAmount,
-            (asset1.totalSupply - (contractData.tokenA.locked + contractData.tokenA.reservedAmount)) + (asset2.totalSupply - (contractData.tokenB.locked + contractData.tokenB.reservedAmount)),
+            (asset1._embedded.records[0].amount - (contractData.tokenA.locked + contractData.tokenA.reservedAmount)) +
+            (asset2._embedded.records[0].amount - (contractData.tokenB.locked + contractData.tokenB.reservedAmount)),
             contractData.overallPaymentCount,
             contractData.totalPaymentsCount,
             contractData.totalTradeCount

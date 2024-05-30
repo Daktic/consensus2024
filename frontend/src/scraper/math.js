@@ -20,13 +20,13 @@ class AggData {
         this.totalPaymentsCount = totalPaymentsCount;
         this.totalTradeCount = totalTradeCount;
 
-        this.apy = am.apy(totalSupply)
-        this.poolUtalzation = am.poolUtilization()
-        this.liquidityLevels = am.liquidityLevels()
-        this.tradingActivity = am.tradingActivity()
-        this.paymentActivity = am.tradingActivity()
-        this.liquidityConcentration = am.liquidityConcentration()
-        this.liquidityDepth = am.liquidityDepth()
+        this.apy = am.apy(1);
+        this.poolUtalzation = am.poolUtilization(1,2)
+        this.liquidityLevels = am.liquidityLevels(1,2)
+        this.tradingActivity = am.tradingActivity(1,2)
+        this.paymentActivity = am.tradingActivity(1,2)
+        this.liquidityConcentration = am.liquidityConcentration(1,1)
+        this.liquidityDepth = am.liquidityDepth(1,2)
     }
 }
 
@@ -135,8 +135,8 @@ class AggMath {
         this.weigh(AggData.liquidityLevels, weights.liquidityLevels.min, weights.liquidityLevels.max, weights.liquidityLevels.weight) +
         this.weigh(AggData.paymentActivity, weights.paymentActivity.min, weights.paymentActivity.max, weights.paymentActivity.weight) +
         this.weigh(AggData.tradingActivity, weights.tradingActivitiy.min, weights.tradingActivitiy.max, weights.tradingActivitiy.weight) +
-        this.weigh(AggData.liquiditytConcentration, weights.liquiditytConcentration.min, weights.liquiditytConcentration.max, weights.liquiditytConcentration.weight) +
-        this.weigh(AggData.liqudityDepth, weights.liqudityDepth.min, weights.liqudityDepth.max, weights.liqudityDepth.weight)
+        this.weigh(AggData.liquidityConcentration, weights.liquiditytConcentration.min, weights.liquiditytConcentration.max, weights.liquiditytConcentration.weight) +
+        this.weigh(AggData.liquidityDepth, weights.liqudityDepth.min, weights.liqudityDepth.max, weights.liqudityDepth.weight)
 
 
 

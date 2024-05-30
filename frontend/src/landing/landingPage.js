@@ -27,6 +27,7 @@ function LandingPage({data}) {
         setTotalTradeCount(data.totalTradeCount);
         setOverallTradedVolume(data.overallTradedVolume);
         setRiskScore(am.riskScore(data))
+        console.log(data)
     }, [data]);
 
   return (
