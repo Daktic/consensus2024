@@ -5,6 +5,7 @@ import Scraper from "./scraper/Scraper";
 import {useState} from "react";
 import {AggData, AggMath} from "./scraper/math";
 import contractData from  "./mock/mockLP.json";
+import backgroundImg from "./18.jpeg"
 
 
 
@@ -34,7 +35,9 @@ function App() {
         setData(aggData)
     }
   return (
-      <div className="App">
+      <div className="App" style={{
+          backgroundImage: backgroundImg,
+      }}>
           <Pools data={data} getRiskScore={maKeRequest}/>
       </div>
   );
