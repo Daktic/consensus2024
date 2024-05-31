@@ -91,7 +91,7 @@ const styles = {
         justifyContent: 'center',
         alignItems: 'center',
         height: '100vh',
-        backgroundImage: `url(/18.jpeg)`,
+        background: 'rgba(120,120,131,0.19)',
     },
     content: {
         backgroundColor: '#fff',
