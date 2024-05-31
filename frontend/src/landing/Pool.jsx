@@ -4,6 +4,8 @@ import {AggMath} from "../scraper/math";
 import chartData from "../mock/mockLP.json"
 import LpChart from "./Chart";
 
+import Background from "../18.jpeg";
+
 
 
 
@@ -22,7 +24,7 @@ function Pool({data, getRiskScore}) {
     const am = new AggMath;
 
     useEffect(() => {
-        setTotalSupply(Math.round(data.totalSupply),2);
+        setTotalSupply(500);
         setFeeLock(data.feeLock);
         setReservedAmount(data.reservedAmount);
         setCirculatingSupply(data.circulatingSupply);
@@ -31,7 +33,7 @@ function Pool({data, getRiskScore}) {
         setTotalPaymentsCount(data.totalPaymentsCount);
         setTotalTradeCount(data.totalTradeCount);
         setOverallTradedVolume(data.overallTradedVolume);
-        setRiskScore(Math.round(am.riskScore(data)),2)
+        setRiskScore(am.riskScore(data))
         console.log(data)
     }, [data]);
 
@@ -91,7 +93,7 @@ const styles = {
         justifyContent: 'center',
         alignItems: 'center',
         height: '100vh',
-        background: '#f0f0f0',
+        backgroundImage: `url(${Background})`,
     },
     content: {
         backgroundColor: '#fff',
