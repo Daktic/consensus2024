@@ -22,7 +22,7 @@ function Pool({data, getRiskScore}) {
     const am = new AggMath;
 
     useEffect(() => {
-        setTotalSupply(data.totalSupply);
+        setTotalSupply(Math.round(data.totalSupply),2);
         setFeeLock(data.feeLock);
         setReservedAmount(data.reservedAmount);
         setCirculatingSupply(data.circulatingSupply);
@@ -31,7 +31,7 @@ function Pool({data, getRiskScore}) {
         setTotalPaymentsCount(data.totalPaymentsCount);
         setTotalTradeCount(data.totalTradeCount);
         setOverallTradedVolume(data.overallTradedVolume);
-        setRiskScore(am.riskScore(data))
+        setRiskScore(Math.round(am.riskScore(data)),2)
         console.log(data)
     }, [data]);
 
