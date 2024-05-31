@@ -4,19 +4,87 @@
     "address": "CDLZFC3SYJYDZT7K67VZ75HPJVIEUVNIXF47ZG2FB2RMQQVU2HHGCYSC",
     "creator": "GARUDQULRJ57RO2RTDGPKTBMPYX5UDJXLOXPW5FBNR2WL6GYGH5Q36V7",
     "symbol": "XLM",
-    "locked": "3098.7741593",
-    "reservedAmount": "500"
+    "data": [
+      {
+        "date": "2024-05-01",
+        "locked": 2450,
+        "reservedAmount": 500
+      },
+      {
+        "date": "2024-05-02",
+        "locked": 2856,
+        "reservedAmount": 600
+      },
+      {
+        "date": "2024-05-03",
+        "locked": 3428,
+        "reservedAmount": 700
+      },
+      {
+        "date": "2024-05-04",
+        "locked": 3098.7741593,
+        "reservedAmount": 750
+      }
+    ]
   },
     "tokenB": {
     "address": "CCKW6SMINDG6TUWJROIZ535EW2ZUJQEDGSKNIK3FBK26PAMBZDVK2BZA",
     "creator": "GCPJFNZAARY3Z2AM7RVXDZDLPOEBT4QHTQXFOFKMZHLV7PPDKE2M67Q6",
       "symbol": "CCKW6SMINDG6TUWJROIZ535EW2ZUJQEDGSKNIK3FBK26PAMBZDVK2BZA",
-      "locked": "1037114",
-      "reservedAmount": "500"
+      "data": [
+        {
+          "date": "2024-05-01",
+          "locked": 1037114,
+          "reservedAmount": 5000
+        },
+        {
+          "date": "2024-05-02",
+          "locked": 1059154,
+          "reservedAmount": 5500
+        },
+        {
+          "date": "2024-05-03",
+          "locked": 1119154,
+          "reservedAmount": 6200
+        },
+        {
+          "date": "2024-05-04",
+          "locked": 1319154,
+          "reservedAmount": 6800
+        }
+      ]
     },
-  "transactionCount": "15",
-  "feeLock": "0.03",
-  "overallPaymentCount": "5000",
-  "totalPaymentsCount": "4000",
-  "totalTradeCount": "6000"
+  "data": [{
+    "date": "2024-05-01",
+    "transactionCount": 5,
+    "feeLock": 0.03,
+    "overallPaymentCount": 2000,
+    "totalPaymentsCount": 1000,
+    "totalTradeCount": 3000
+  },
+    {
+      "date": "2024-05-02",
+      "transactionCount": 7,
+      "feeLock": 0.03,
+      "overallPaymentCount": 3000,
+      "totalPaymentsCount": 2000,
+      "totalTradeCount": 4000
+    },
+    {
+      "date": "2024-05-03",
+      "transactionCount": 11,
+      "feeLock": 0.03,
+      "overallPaymentCount": 5000,
+      "totalPaymentsCount": 4000,
+      "totalTradeCount": 6000
+    },
+    {
+      "date": "2024-05-04",
+      "transactionCount": 15,
+      "feeLock": 0.03,
+      "overallPaymentCount": 6000,
+      "totalPaymentsCount": 5000,
+      "totalTradeCount": 7000
+    }
+  ]
 }
