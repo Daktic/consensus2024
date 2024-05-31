@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
-import LandingPage from "./landing/landingPage";
+import Pools from "./landing/pools";
 import Scraper from "./scraper/Scraper";
 import {useState} from "react";
 import {AggData, AggMath} from "./scraper/math";
@@ -36,7 +36,7 @@ function App() {
   return (
     <div className="App">
 
-      <LandingPage data={data}/>
+      <Pools data={data}/>
         <button onClick={maKeRequest}>Click me</button>
 
     </div>
