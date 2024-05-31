@@ -51,15 +51,15 @@ function Pool({data, getRiskScore}) {
                 label: 'Token A',
                 data: lockedAmountA,
                 fill: false,
-                backgroundColor: 'rgb(75, 192, 192)',
-                borderColor: 'rgba(75, 192, 192, 0.2)',
+                backgroundColor: '#B7A7EF',
+                borderColor: 'rgba(183,167,239,0.37)',
             },
             {
                 label: 'Token B',
                 data: lockedAmountB,
                 fill: false,
-                backgroundColor: 'rgb(188,75,192)',
-                borderColor: 'rgba(135,75,192,0.2)',
+                backgroundColor: '#00A2AF',
+                borderColor: 'rgba(0,162,175,0.32)',
             },
         ],
     };
@@ -105,17 +105,19 @@ const styles = {
     title: {
         fontSize: '24px',
         marginBottom: '10px',
+        fontFamily:'Lora Bold'
     },
     subtitle: {
         fontSize: '18px',
         marginBottom: '5px',
+        fontFamily: 'Inter'
     },
     button: {
         marginTop: '20px',
         padding: '10px 20px',
         fontSize: '16px',
-        backgroundColor: '#007bff',
-        color: '#fff',
+        backgroundColor: '#F7D423',
+        color: '#000000',
         border: 'none',
         borderRadius: '4px',
         cursor: 'pointer',
