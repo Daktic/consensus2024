@@ -34,12 +34,9 @@ function App() {
         setData(aggData)
     }
   return (
-    <div className="App">
-
-      <Pools data={data}/>
-        <button onClick={maKeRequest}>Click me</button>
-
-    </div>
+      <div className="App">
+          <Pools data={data} getRiskScore={maKeRequest}/>
+      </div>
   );
 }
 

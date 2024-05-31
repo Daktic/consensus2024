@@ -7,7 +7,7 @@ import LpChart from "./Chart";
 
 
 
-function Pool({data}) {
+function Pool({data, getRiskScore}) {
     const [totalSupply, setTotalSupply] = useState(0);
     const [feeLock, setFeeLock] = useState(0);
     const [reservedAmount, setReservedAmount] = useState(0);
@@ -67,18 +67,19 @@ function Pool({data}) {
 
     return (
         <div style={styles.container}>
-            <div>
+            <div style={styles.content}>
                 <div>
-                    <h2>Risk Score</h2>
+                    <h2 style={styles.title}>Risk Score</h2>
                     <p>{riskScore}</p>
                 </div>
                 <div>
-                    <h3>Total Supply</h3>
+                    <h3 style={styles.subtitle}>Total Supply</h3>
                     <p>{totalSupply}</p>
                 </div>
-                <LpChart
-                    chartData={pool1}
-                />
+                <div style={styles.chart}>
+                    <LpChart chartData={pool1}/>
+                </div>
+                <button style={styles.button} onClick={getRiskScore}>Get Risk Score</button>
             </div>
         </div>
     );
@@ -86,10 +87,42 @@ function Pool({data}) {
 
 const styles = {
     container: {
-        backgroundColor: "rgba(128,128,128,0.35)",
-        width: "50%",
-        display: "flex",
-    }
-}
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        height: '100vh',
+        backgroundColor: '#f0f0f0',
+    },
+    content: {
+        backgroundColor: '#fff',
+        padding: '20px',
+        borderRadius: '8px',
+        boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
+        textAlign: 'center',
+        maxWidth: '400px',
+        width: '100%',
+    },
+    title: {
+        fontSize: '24px',
+        marginBottom: '10px',
+    },
+    subtitle: {
+        fontSize: '18px',
+        marginBottom: '5px',
+    },
+    button: {
+        marginTop: '20px',
+        padding: '10px 20px',
+        fontSize: '16px',
+        backgroundColor: '#007bff',
+        color: '#fff',
+        border: 'none',
+        borderRadius: '4px',
+        cursor: 'pointer',
+    },
+    chart: {
+        marginTop: '20px',
+    },
+};
 
 export default Pool;

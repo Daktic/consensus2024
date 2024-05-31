@@ -2,12 +2,11 @@
 import Pool from "./Pool";
 
 
-function Pools({data}) {
+function Pools({data, getRiskScore}) {
     return (
         <div style={styles.container}>
             <h1>Pool Metric Aggregator</h1>
-            <Pool data={data}/>
-            <Pool data={data}/>
+            <Pool data={data} getRiskScore={getRiskScore} />
         </div>
     )
 }
