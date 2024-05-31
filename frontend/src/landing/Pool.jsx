@@ -4,8 +4,6 @@ import {AggMath} from "../scraper/math";
 import chartData from "../mock/mockLP.json"
 import LpChart from "./Chart";
 
-import Background from "../18.jpeg";
-
 
 
 
@@ -24,7 +22,7 @@ function Pool({data, getRiskScore}) {
     const am = new AggMath;
 
     useEffect(() => {
-        setTotalSupply(500);
+        setTotalSupply(50000);
         setFeeLock(data.feeLock);
         setReservedAmount(data.reservedAmount);
         setCirculatingSupply(data.circulatingSupply);
@@ -93,7 +91,7 @@ const styles = {
         justifyContent: 'center',
         alignItems: 'center',
         height: '100vh',
-        backgroundImage: `url(${Background})`,
+        backgroundImage: `url(/18.jpeg)`,
     },
     content: {
         backgroundColor: '#fff',
